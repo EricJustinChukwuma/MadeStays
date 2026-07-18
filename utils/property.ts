@@ -1,6 +1,7 @@
 // Import Property and Step Type from Types Property.ts
 import type { Property, Step } from "@/types/property";
 
+// Create Little Helper Utility Functions
 export type OverallStatus =
   | "Live"
   | "Needs Attention"

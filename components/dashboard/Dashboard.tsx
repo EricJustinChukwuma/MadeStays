@@ -19,7 +19,7 @@ export default function Dashboard() {
   const [statusFilter, setStatusFilter] =
     useState<StatusFilter>("All Statuses");
 
-  const totalSteps = dashboardData.onboardingStepDefinitions.length;
+  // const totalSteps = dashboardData.onboardingStepDefinitions.length;
 
   // Property Filter Function to create a new array that meets the search text value or status filter value
   // Avoids recalculation when an unrelated component in the app changes.
@@ -49,7 +49,7 @@ export default function Dashboard() {
       <div className="mx-auto max-w-7xl space-y-8 px-4 py-8 sm:px-6 lg:px-8">
         <WelcomeSection />
 
-        <PortfolioOverview />
+        <PortfolioOverview properties={dashboardData.properties} />
 
         <FilterBar
           searchTerm={searchTerm}
@@ -58,7 +58,10 @@ export default function Dashboard() {
           onStatusChange={setStatusFilter}
         />
 
-        <PropertyGrid properties={filteredProperties} totalSteps={totalSteps} />
+        <PropertyGrid
+          properties={filteredProperties}
+          stepDefinitions={dashboardData.onboardingStepDefinitions}
+        />
       </div>
     </main>
   );

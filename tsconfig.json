@@ -39,7 +39,7 @@
     ".next/routes.d.ts",
     ".next/validator.ts",
     ".next/types/**/*.ts"
-  ],
+, "../SummaryCard2.tsx"  ],
   "exclude": [
     "node_modules"
   ]
