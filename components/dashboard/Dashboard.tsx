@@ -14,33 +14,31 @@ import WelcomeSection from "./WelcomeSection";
 const dashboardData = rawData as unknown as DashboardData;
 
 export default function Dashboard() {
+  // Create a state to hold the current Search Bar value and Status Filter value
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] =
     useState<StatusFilter>("All Statuses");
 
-  const totalSteps =
-    dashboardData.onboardingStepDefinitions.length;
+  const totalSteps = dashboardData.onboardingStepDefinitions.length;
 
+  // Property Filter Function to create a new array that meets the search text value or status filter value
+  // Avoids recalculation when an unrelated component in the app changes.
   const filteredProperties = useMemo(() => {
-    const normalisedSearchTerm = searchTerm
-      .trim()
-      .toLowerCase();
+    // trims the search value and converts it to lowercase to prepare it
+    const normalisedSearchTerm = searchTerm.trim().toLowerCase();
 
+    // Filters the Properties
     return dashboardData.properties.filter((property) => {
+      // if the search text is an empty string, the property name, or the property location,
       const matchesSearch =
         normalisedSearchTerm === "" ||
-        property.name
-          .toLowerCase()
-          .includes(normalisedSearchTerm) ||
-        property.location
-          .toLowerCase()
-          .includes(normalisedSearchTerm);
+        property.name.toLowerCase().includes(normalisedSearchTerm) ||
+        property.location.toLowerCase().includes(normalisedSearchTerm);
 
       const propertyStatus = getOverallStatus(property);
 
       const matchesStatus =
-        statusFilter === "All Statuses" ||
-        propertyStatus === statusFilter;
+        statusFilter === "All Statuses" || propertyStatus === statusFilter;
 
       return matchesSearch && matchesStatus;
     });
@@ -60,15 +58,11 @@ export default function Dashboard() {
           onStatusChange={setStatusFilter}
         />
 
-        <PropertyGrid
-          properties={filteredProperties}
-          totalSteps={totalSteps}
-        />
+        <PropertyGrid properties={filteredProperties} totalSteps={totalSteps} />
       </div>
     </main>
   );
 }
-
 
 // import WelcomeSection from "./WelcomeSection";
 // import PortfolioOverview from "./PortfolioOverview";
@@ -82,7 +76,7 @@ export default function Dashboard() {
 //   const { properties, onboardingStepDefinitions } = dashboardData;
 
 //   const filteredProperty = properties.filter(
-//     (property) => 
+//     (property) =>
 //   )
 //   return (
 //     <main className="min-h-screen bg-slate-50 w-full">
