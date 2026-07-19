@@ -8,12 +8,14 @@ import {
   X,
 } from "lucide-react";
 
+// Import Types
 import type {
   Property,
   StepDefinition,
   StepStatus,
 } from "../../types/property";
 
+// Import utility functions
 import {
   calculateProgress,
   formatDate,
@@ -52,22 +54,26 @@ export default function PropertyModal({
   isOpen,
   onClose,
 }: PropertyModalProps) {
+  // Handles the modal pop that's outside the scope of React State management
   useEffect(() => {
+    // if is open is false stops below code from executing
     if (!isOpen) {
       return;
     }
 
+    // Listens for a global Key Press. If user press escape, it trigers the onClose() function
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         onClose();
       }
     };
 
+    // Stops the webpage from scrolling in the background while the user inetracts with the modal
     const previousOverflow = document.body.style.overflow;
-
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", handleKeyDown);
 
+    // Cleanup Code cleaning the gloabl key event listener to close the modal
     return () => {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
@@ -85,11 +91,14 @@ export default function PropertyModal({
 
   const overallStatus = getOverallStatus(property);
 
+  // create a new array that sorts out which steps comes first
   const orderedStepDefinitions = [...stepDefinitions].sort(
     (firstStep, secondStep) =>
       firstStep.order - secondStep.order
   );
 
+  // Maps through the property array steps and creates a new array with 
+  // the step id as the key and the original step object as the value of that key
   const propertySteps = new Map(
     property.steps.map((step) => [step.id, step])
   );

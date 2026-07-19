@@ -1,9 +1,6 @@
 import type { Property } from "../../types/property";
 
-import {
-  getOverallStatus,
-  type OverallStatus,
-} from "../../utils/property";
+import { getOverallStatus, type OverallStatus } from "../../utils/property";
 
 interface PortfolioOverviewProps {
   properties: Property[];
@@ -12,9 +9,7 @@ interface PortfolioOverviewProps {
 export default function PortfolioOverview({
   properties,
 }: PortfolioOverviewProps) {
-  const statusCounts = properties.reduce<
-    Record<OverallStatus, number>
-  >(
+  const statusCounts = properties.reduce<Record<OverallStatus, number>>(
     (counts, property) => {
       const status = getOverallStatus(property);
 
@@ -28,7 +23,7 @@ export default function PortfolioOverview({
       "Needs Attention": 0,
       "On Hold": 0,
       "Not Started": 0,
-    }
+    },
   );
 
   const summaryItems = [
@@ -79,9 +74,7 @@ export default function PortfolioOverview({
             key={item.label}
             className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
           >
-            <p className="text-sm font-medium text-slate-500">
-              {item.label}
-            </p>
+            <p className="text-sm font-medium text-slate-500">{item.label}</p>
 
             <p className="mt-2 text-3xl font-bold text-slate-900">
               {item.value}
@@ -92,37 +85,3 @@ export default function PortfolioOverview({
     </section>
   );
 }
-
-
-
-// import SummaryCard from "./SummaryCard";
-
-// export default function PortfolioSummary() {
-//   return (
-//     <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-//       <SummaryCard
-//         title="Properties"
-//         value={8}
-//         subtitle="Total portfolio"
-//       />
-
-//       <SummaryCard
-//         title="Live"
-//         value={2}
-//         subtitle="Currently accepting guests"
-//       />
-
-//       <SummaryCard
-//         title="In Progress"
-//         value={5}
-//         subtitle="Still onboarding"
-//       />
-
-//       <SummaryCard
-//         title="Needs Attention"
-//         value={1}
-//         subtitle="Action required"
-//       />
-//     </section>
-//   );
-// }
