@@ -77,7 +77,7 @@ export default function FilterBar({
                 event.target.value as StatusFilter
               )
             }
-            className="w-full cursor-pointer rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-slate-400 focus:ring-2 focus:ring-slate-200"
+            className="w-full cursor-pointer rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 outline-none transition hover:bg-slate-200 focus:border-slate-400 focus:ring-2 focus:ring-slate-200"
           >
             {statusOptions.map((status) => (
               <option key={status} value={status}>

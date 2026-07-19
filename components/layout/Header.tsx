@@ -1,5 +1,9 @@
 import React from "react";
 import { Bell } from "lucide-react";
+import rawData from "../../data/onboarding-data.json"
+import { DashboardData } from "@/types/property";
+
+const dashBoardData = rawData as unknown as DashboardData;
 
 export default function Header() {
   return (
@@ -23,7 +27,7 @@ export default function Header() {
           </div>
 
           <div>
-            <p className="font-medium text-slate-900">Michael</p>
+            <p className="font-medium text-slate-900">{dashBoardData.owner.name}</p>
             <p className="text-xs text-slate-500">Property Owner</p>
           </div>
         </div>
