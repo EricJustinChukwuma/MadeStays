@@ -1,3 +1,42 @@
+# MadeStays Property Onboarding Dashboard
+
+A responsive property onboarding dashboard built with Next.js, React, TypeScript, Tailwind CSS, and local JSON data.
+
+## Features
+
+- Property cards generated from JSON data
+- Search by property name or location
+- Filter properties by onboarding status
+- Progress bars and status badges
+- Property details modal
+- Responsive layout
+- Missing-image fallback
+- Loading skeleton
+
+## Running the Application
+
+Make sure Node.js and npm are installed.
+
+Open a terminal in the project folder and install the dependencies:
+
+````bash
+npm install
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -12,7 +51,7 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
+````
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
