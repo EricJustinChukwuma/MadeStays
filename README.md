@@ -1,6 +1,6 @@
 # MadeStays Property Onboarding Dashboard
 
-A responsive property onboarding dashboard built with Next.js, React, TypeScript, Tailwind CSS, and local JSON data.
+A responsive property onboarding dashboard built with Next.js, React, TypeScript, Tailwind CSS, Lucide React, and local JSON data.
 
 ## Features
 
